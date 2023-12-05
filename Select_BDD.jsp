@@ -8,8 +8,6 @@
 </head>
 <body>
     <input type="text" id="annee" name="annee" placeholder="Année d'un film" required>
-    <label for="annee">Année</label>
-<input type="search" id="site-search" name="annee" />
 <input type="submit" value="Envoyer">
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
@@ -23,7 +21,7 @@
         // Établir la connexion
 Connection conn = DriverManager.getConnection(url, user, password);
             // Exemple de requête SQL
-            request.getParameter("annee")
+            request.getParameter("annee");
         String sql = "SELECT idFilm, titre, année FROM Film WHERE année = annee";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
