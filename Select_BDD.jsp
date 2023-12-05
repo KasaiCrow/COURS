@@ -7,8 +7,10 @@
     <title>Connexion à MySQL via JSP</title>
 </head>
 <body>
+    <form action="Select_BDD.jsp" method="post">
     <input type="text" id="annee" name="annee" placeholder="Année d'un film" required>
     <input type="submit" value="Envoyer">
+</form>
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
     String url = "jdbc:mariadb://localhost:3306/films";
@@ -22,7 +24,8 @@
 Connection conn = DriverManager.getConnection(url, user, password);
             // Exemple de requête SQL
         request.getParameter("annee");
-        String sql = "SELECT idFilm, titre, année FROM Film WHERE année = annee";
+        String valeurInput = request.getParameter("annee");
+        String sql = "SELECT idFilm, titre, année FROM Film WHERE année = valeurInput";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
 
