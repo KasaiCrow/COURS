@@ -31,7 +31,7 @@ Connection conn = DriverManager.getConnection(url, user, password);
         int idFilm = Integer.parseInt(idFilmStr);
 
         // Préparer la requête SQL de mise à jour
-        String sql = "UPDATE FILM SET titre = ? WHERE idFilm = ?";
+        String sql = "UPDATE Film SET titre = ? WHERE idFilm = ?";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, nouveauTitre);
         pstmt.setInt(2, idFilm);
