@@ -8,7 +8,7 @@
 </head>
 <body>
     <input type="text" id="annee" name="annee" placeholder="Année d'un film" required>
-<input type="submit" value="Envoyer">
+    <input type="submit" value="Envoyer">
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
     String url = "jdbc:mariadb://localhost:3306/films";
@@ -21,11 +21,10 @@
         // Établir la connexion
 Connection conn = DriverManager.getConnection(url, user, password);
             // Exemple de requête SQL
-            request.getParameter("annee");
+        request.getParameter("annee");
         String sql = "SELECT idFilm, titre, année FROM Film WHERE année = annee";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
-        
 
         // Afficher les résultats (à adapter selon vos besoins)
         while (rs.next()) {
@@ -36,6 +35,7 @@ Connection conn = DriverManager.getConnection(url, user, password);
             //Exemple d'affichage de 2 colonnes
             out.println("id : " + colonne1 + ", titre : " + colonne2 + ", année : " + colonne3 + "</br>");
         }
+
         // Fermer les ressources 
         rs.close();
         pstmt.close();
