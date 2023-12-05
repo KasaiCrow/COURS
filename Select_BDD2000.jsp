@@ -18,14 +18,18 @@
 
     Connection conn = DriverManager.getConnection(url, user, password);
 
-    String sql = "SELECT idFilm, titre FROM Film where année>=2000";
+    String sql = "SELECT idFilm, titre FROM Film where année>2000";
     PreparedStatement pstmt = conn.prepareStatement(sql);
     ResultSet rs = pstmt.executeQuery();
 
     while (rs.next()) {
         String colonne1 = rs.getString("idFilm");
         String colonne2 = rs.getString("titre");
+        // Faites ce que vous voulez avec les données...
+        //Exemple d'affichage de 2 colonnes
+        out.println("Colonne 1 : " + colonne1 + ", Colonne 2 : " + colonne2 + "</br>");
     }
+
     // Fermer les ressources 
     rs.close();
     pstmt.close();
