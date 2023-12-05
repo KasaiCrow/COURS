@@ -8,6 +8,7 @@
     <title>Connexion à MySQL via JSP</title>
 </head>
 <body>
+    <input type="search"id="annee" name="Année"><br><br>
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
     String url = "jdbc:mysql://localhost:3306/films";
