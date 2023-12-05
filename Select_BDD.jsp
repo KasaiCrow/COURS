@@ -9,7 +9,7 @@
 <body>
     <input type="text" id="annee" name="annee" placeholder="Année d'un film" required>
     <label for="annee">Année</label>
-<input type="search" id="site-search" name="année" />
+<input type="search" id="site-search" name="annee" />
 <input type="submit" value="Envoyer">
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
@@ -23,9 +23,11 @@
         // Établir la connexion
 Connection conn = DriverManager.getConnection(url, user, password);
             // Exemple de requête SQL
-        String sql = "SELECT idFilm, titre, année FROM Film WHERE année >= 2000";
+            request.getParameter("annee")
+        String sql = "SELECT idFilm, titre, année FROM Film WHERE année = annee";
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ResultSet rs = pstmt.executeQuery();
+        
 
         // Afficher les résultats (à adapter selon vos besoins)
         while (rs.next()) {
@@ -36,7 +38,6 @@ Connection conn = DriverManager.getConnection(url, user, password);
             //Exemple d'affichage de 2 colonnes
             out.println("id : " + colonne1 + ", titre : " + colonne2 + ", année : " + colonne3 + "</br>");
         }
-
         // Fermer les ressources 
         rs.close();
         pstmt.close();
