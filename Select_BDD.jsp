@@ -29,34 +29,6 @@ Connection conn = DriverManager.getConnection(url, user, password);
         PreparedStatement pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, valeurInput);
         ResultSet rs = pstmt.executeQuery();
-
-        String idFilmStr = request.getParameter("id");
-        String nouveauTitre = request.getParameter("nom");
-         if (idFilmStr != null && nouveauTitre != null && !idFilmStr.isEmpty() && !nouveauTitre.isEmpty()) {
-        try {
-            // Convertir l'ID du film en entier
-            int idFilm = Integer.parseInt(idFilmStr);
-    
-            // Préparer la requête SQL de mise à jour
-            String sql = "UPDATE Film SET titre = ? WHERE idFilm = ?";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, nouveauTitre);
-            pstmt.setInt(2, idFilm);
-    
-            // Exécuter la mise à jour
-            int rowsAffected = pstmt.executeUpdate();
-    
-            // Vérifier si la mise à jour a réussi
-            if (rowsAffected > 0) {
-                out.println("Mise à jour réussie !");
-            } else {
-                out.println("Aucun film trouvé avec l'ID spécifié.");
-            }   
-        } 
-        catch (SQLException | NumberFormatException e) {
-            e.printStackTrace();
-            out.println("Erreur lors de la mise à jour du film.");
-        }
         
         // Afficher les résultats (à adapter selon vos besoins)
         while (rs.next()) {
