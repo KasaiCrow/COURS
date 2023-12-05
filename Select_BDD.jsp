@@ -7,6 +7,8 @@
     <title>Connexion à MySQL via JSP</title>
 </head>
 <body>
+    <label for="site-search">Année de sortie</label>
+<input type="search" id="site-search" name="année" />
     <h1>Exemple de connexion à MySQL via JSP</h1>
     <% 
     String url = "jdbc:mariadb://localhost:3306/films";
