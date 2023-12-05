@@ -48,15 +48,12 @@ Connection conn = DriverManager.getConnection(url, user, password);
 
         // Fermer les ressources
         pstmt.close();
-        conn.close();
 
     } catch (SQLException | NumberFormatException e) {
         e.printStackTrace();
         out.println("Erreur lors de la mise à jour du film.");
     }
     // Fermer les ressources 
-    rs.close();
-    pstmt.close();
     conn.close();
 %>
 </body>
